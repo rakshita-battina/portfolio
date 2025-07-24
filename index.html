@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakshita - Personal Website</title>
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background 0.3s, color 0.3s; }
+    a, button { text-decoration: none; color: inherit; border: none; background: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; }
+
+/* body.light-theme {
+  background: #fff;
+  color: #000;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme p,
+body.light-theme a,
+body.light-theme li,
+body.light-theme th,
+body.light-theme td,
+body.light-theme .role,
+body.light-theme .project-desc,
+body.light-theme .project-title,
+body.light-theme .exp-location,
+body.light-theme .exp-date,
+body.light-theme .edu-location,
+body.light-theme .edu-date,
+body.light-theme .certificate-org,
+body.light-theme .certificate-date {
+  color: #000 !important;
+}
+
+body.light-theme .btn-contact {
+  background: #000;
+  color: #fff;
+} 
+
+body.light-theme .project-item,
+body.light-theme .summary-card,
+body.light-theme .exp-icon,
+body.light-theme .skill-icon,
+body.light-theme .edu-icon,
+body.light-theme .cert-icon {
+  background-color: #eee;
+  color: #000;
+  border-color: #bbb;
+}*/
+
+body.light-theme .skills-row:hover,
+body.light-theme .experience-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+
+
+    /* Fixed Navigation */
+    header { position: fixed; top: 0; left: 0; width: 100%; background: #000; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; z-index: 1000; }
+    .nav-left h1 { font-size: 1.5rem; font-weight: bold; }
+    .nav-right { display: flex; align-items: center; gap: 0.2rem; }
+    .nav-right .btn { font-size: 1rem; padding: 0.6rem 0.8rem; border-radius: 4px; }
+    /* .btn-toggle { font-size: 1.2rem; } */
+    .btn-contact { background: #DD4235; color: #fff; padding: 0.75rem 1.5rem; border-radius: 24px; font-family: "Inter", "Inter Placeholder", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0; text-align: center; }
+
+    /* Intro Section */
+    .intro-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 140px 0 80px;
+      background-color: #121212;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      gap: 60px;
+    }
+    .intro-image {
+      width: 400px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+    }
+    .intro-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Squircle shape using clip-path */
+      clip-path: path('M 40 0 Q 0 0 0 40 Q 0 240 0 440 Q 0 480 40 480 Q 200 480 360 480 Q 400 480 400 440 Q 400 240 400 40 Q 400 0 360 0 Q 200 0 40 0 Z');
+      background: #222;
+    }
+    .intro-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+      max-width: 500px;
+    }
+    .circular-label {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .circular-label svg {
+      transform: rotate(15deg);
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+    .intro-text h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .intro-text .role {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 1.2rem;
+    }
+    .intro-text p {
+      max-width: 600px;
+      color: #ddd;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .intro-text .btn-contact {
+      width: fit-content;
+      padding: 0.7rem 1.6rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s, color 0.2s;
+    }
+    .intro-text .btn-contact:hover {
+      background: #222;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .intro-section { flex-direction: column; gap: 32px; padding: 120px 0 40px; }
+      .intro-image { width: 320px; height: 380px; }
+      .intro-text { max-width: 100%; align-items: center; text-align: center; }
+      .circular-label { justify-content: center; }
+    }
+    /* Sections */
+    section { margin-bottom: 10px !important; }
+    .professional-summary,
+    .education-section,
+    .skills-section {
+      padding: 4px 0 4px 0;
+    }
+    .education-card {
+      margin-bottom: 0 !important;
+    }
+    .education-section {
+      margin-bottom: 0 !important;
+    }
+    .skills-section {
+      margin-bottom: 0 !important;
+    }
+    .summary-card {
+      margin-bottom: 0 !important;
+    }
+    .professional-summary {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #111;
+      padding: 10px 48px 10px 48px;
+    }
+    .summary-card {
+      background: #000;
+      color: #fff;
+      border-radius: 16px;
+      max-width: 1100px;
+      width: 100%;
+      padding: 10px 48px 10px 48px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      margin: 0 auto;
+    }
+    .summary-card h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .experience-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+      background: transparent;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+    .experience-item:hover {
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .exp-icon {
+      min-width: 64px;
+      min-height: 64px;
+      background: #181818;
+      color: #4ad9f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      letter-spacing: 1px;
+      border: 2.5px solid #333;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .experience-item:hover .exp-icon {
+      border: 2.5px solid #4ad9f9;
+      box-shadow: 0 4px 16px rgba(255,224,130,0.18), 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .exp-content h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .exp-location {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+    .exp-date {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      border-radius: 16px;
+      padding: 0.3rem 1.2rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+    }
+    .exp-content ul {
+      margin: 0 0 0 1.2rem;
+      padding: 0;
+      color: #fff;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .summary-card { padding: 24px 8px 16px 8px; }
+      .experience-item { flex-direction: column; align-items: flex-start; }
+      .exp-icon { margin-bottom: 12px; margin-right: 0; }
+    }
+    .education-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: none;
+      padding: 5px 0 0 0;
+      margin-bottom: 0;
+    }
+    .education-card {
+      background: none;
+      color: #fff;
+      border-radius: 16px;
+      max-width: 1100px;
+      width: 100%;
+      padding: 10px 48px 10px 48px;
+      box-shadow: none;
+      margin: 0 auto;
+      margin-bottom: 0;
+    }
+    .education-card h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .education-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+    .edu-icon {
+      min-width: 64px;
+      min-height: 64px;
+      background: #181818;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .edu-content h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .edu-location {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+    .edu-date {
+      display: inline-block;
+      background: #fff;
+      color: #111;
+      border-radius: 24px;
+      padding: 0.5rem 1.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .education-card { padding: 24px 8px 16px 8px; }
+      .education-item { flex-direction: column; align-items: flex-start; }
+      .edu-icon { margin-bottom: 12px; margin-right: 0; }
+    }
+    .skills-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: none;
+      padding: 0 0 0 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .skills-card {
+      background: none;
+      color: #fff;
+      border-radius: 16px;
+      max-width: 1100px;
+      width: 100%;
+      padding: 10px 48px 20px 48px;
+      box-shadow: none;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .skills-card h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      align-self: flex-start;
+    }
+    .skills-columns {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 32px; /* Add gap between columns for better separation */
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .skills-col {
+      flex: 1 1 0;
+      min-width: 320px;
+      max-width: 48%;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+    .skills-table {
+      width: auto;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .skills-table th, .skills-table td {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .skills-table th {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.7em;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.7rem 1rem 0.7rem 0;
+      background: none;
+      color: #fff;
+      border: none;
+      width: 220px;
+      vertical-align: top;
+      justify-content: flex-start;
+      white-space: normal; /* Allow headings to wrap */
+      word-break: break-word; /* Break long words if needed */
+    }
+    .skills-table td {
+      text-align: left;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+      width: 80%; /* Slightly reduce the width */
+      max-width: 340px; /* Reduce max width for a more balanced look */
+      word-break: break-word;
+    }
+    /* Skills Section Icon Consistency with Education Icon */
+    .skill-icon {
+      min-width: 64px;
+      min-height: 64px;
+      background: #181818;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      border: 2.5px solid #333;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .skills-row:hover .skill-icon {
+      border: 2.5px solid #4ad9f9;
+      box-shadow: 0 4px 16px rgba(255,224,130,0.18), 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .skill-icon img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .skills-divider {
+      display: table-row;
+    }
+    .skills-hr {
+      border: none;
+      border-top: 1.5px solid #333;
+      margin: 0.2rem 0 0.2rem 0;
+      width: 100%;
+    }
+    .skill-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+    .skills-row {
+      transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+      background: transparent;
+    }
+    .skills-row:hover {
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .skills-section {
+      
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+    }
+    .skills-section.visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (min-width: 900px) {
+      .skills-list {
+        max-width: 1000px;
+        justify-content: flex-start;
+      }
+      .skill-badge {
+        flex: 0 1 calc(9% - 10px);
+        text-align: center;
+      }
+    }
+    @media (max-width: 900px) {
+      .skills-card { padding: 20px 8px 16px 8px; }
+      .skills-columns {
+        flex-direction: column;
+        gap: 0;
+      }
+      .skills-col {
+        max-width: 100%;
+        padding: 0;
+        min-width: 0;
+      }
+      .skills-table th, .skills-table td {
+        display: block;
+        width: 100%;
+        padding: 0 0;
+      }
+      .skills-table tr {
+        display: block;
+        margin-bottom: 0;
+      }
+      .skills-table {
+        font-size: 0.98rem;
+      }
+    }
+    /* Certificates Section */
+    .certificates-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: none;
+      padding: 10px 0;
+      margin-top: 10;
+    }
+    .projects-card,
+    .certificates-card {
+      background: none;
+      color: #fff;
+      border-radius: 16px;
+      max-width: 1100px;
+      width: 100%;
+      padding: 10px 48px 10px 48px;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .projects-card h2,
+    .certificates-card h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .project-item,
+    .certificate-item {
+      margin-bottom: 1rem;
+    }
+    .project-title,
+    .certificate-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc,
+    .certificate-org {
+      color: #ddd;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .project-tech,
+    .certificate-date {
+      display: inline-block;
+      color: #fff;
+      border-radius: 16px;
+      padding: 0.3rem 1.2rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+    }
+    @media (max-width: 900px) {
+      .projects-card,
+      .certificates-card { padding: 24px 8px 16px 8px; }
+    }
+    /* Testimonial Section */
+    .testimonial {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+    }
+    .testimonial h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    /* Contact Section */
+    #contact {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 0;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    #contact p {
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    #contact a {
+      display: inline-block;
+      background: #DD4235;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-family: "Inter", "Inter Placeholder", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    #contact a:hover {
+      background: #c0392b;
+    }
+    /* Certificates Section Two Columns - Improved */
+    .certificates-columns {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 32px; /* Add gap between columns for better separation */
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .certificates-col {
+      flex: 1 1 0;
+      min-width: 320px;
+      max-width: 48%;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 900px) {
+      .certificates-columns {
+        flex-direction: column;
+        gap: 0;
+      }
+      .certificates-col {
+        max-width: 100%;
+        padding: 0;
+        min-width: 0;
+      }
+    }
+     /* Projects Section */
+    .projects-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: none;
+      padding: 10px 0;
+      margin-top: 10;
+    }
+    .project-item {
+      background: #000;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      color: #fff;
+    }
+    .project-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .project-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .project-desc {
+      flex-grow: 1;
+      margin-bottom: 1rem;
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .skill-badge {
+      background: none;
+      color: #fff;
+      border: 1.5px solid #fff;
+      border-radius: 16px;
+      padding: 0.4rem 1.1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+      margin-right: 0.3rem;
+      transition: border 0.3s, color 0.3s;
+      white-space: nowrap;
+      max-width: none;
+    }
+    .project-links {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+    .project-links a.github-link {
+      color: #fff;
+      font-size: 1.7rem;
+      margin-right: 0.2rem;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .project-links a.github-link:hover {
+      color: #4ad9f9;
+    }
+    .project-links a.project-link {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-left: 0.1rem;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .project-links a.project-link:hover {
+      color: #82e0ff;
+    }
+    @media (max-width: 900px) {
+      .projects-card { padding: 24px 8px 16px 8px; }
+      .project-item {
+        flex-direction: column;
+        height: auto;
+      }
+      .project-title {
+        font-size: 1.4rem;
+      }
+      .project-desc {
+        font-size: 1rem;
+      }
+      .project-tech {
+        justify-content: center;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .section-highlight {
+      animation: highlight-section 1.2s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 0 0 4px #4ad9f9, 0 2px 12px rgba(255,224,130,0.18);
+      border-radius: 12px;
+    }
+    @keyframes highlight-section {
+      0% { box-shadow: 0 0 0 0 #4ad9f9; }
+      40% { box-shadow: 0 0 0 8px #4ad9f9; }
+      100% { box-shadow: 0 0 0 4px #4ad9f9, 0 2px 12px rgba(255,224,130,0.18); }
+    }
+    /* Education & Certificates Card Hover Effect */
+    .education-item,
+    .certificate-item {
+      transition: none;
+      background: transparent;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+    .education-item:hover,
+    .certificate-item:hover {
+      background: none;
+      box-shadow: none;
+      transform: none;
+    }
+    .edu-icon,
+    .cert-icon {
+      min-width: 64px;
+      min-height: 64px;
+      background: #181818;
+      color: #4ad9f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      letter-spacing: 1px;
+      border: 2.5px solid #333;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .education-item:hover .edu-icon,
+    .certificate-item:hover .cert-icon {
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px) scale(1.01);
+      border: 2.5px solid #4ad9f9;
+      box-shadow: 0 4px 16px rgba(255,224,130,0.18), 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .cert-content h3,
+    .cert-content .cert-org,
+    .cert-content .cert-date {
+      color: #fff;
+    }
+    .certificate-item {
+      margin-bottom: 0.5rem;
+      padding: 5px 0;
+    }
+    .education-item {
+      margin-bottom: 0.5rem;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left"><h1>Rakshita Battina</h1></div>
+    <div class="nav-right">
+      <!-- <button class="btn btn-toggle" id="theme-toggle">☀️</button> -->
+      <a href="#experience" class="btn">Experiences</a>
+      <a href="#projects" class="btn">Projects</a>
+      <a href="#education" class="btn">Education</a>
+      <a href="#skills" class="btn">Skills</a>
+      <a href="#certificates" class="btn">Certificates</a>
+      <a href="#contact" class="btn btn-contact">Contact</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="intro-section">
+      <div class="intro-image">
+        <img src="images/pic.jpg" alt="Rakshita Battina">
+      </div>
+      <div class="intro-text">
+        <div class="circular-label">
+          <svg viewBox="0 0 100 100" style="width:100px;height:100px;">
+            <path id="circlePath" d="M50,50 m-34,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0" fill="none"/>
+            <text font-size="9" font-family="'Segoe UI', Arial, sans-serif" fill="#fff">
+              <textPath xlink:href="#circlePath">
+  <animate attributeName="startOffset" values="0%;100%" dur="10s" repeatCount="indefinite" />
+  RAKSHITA BATTINA ✦ SOFTWARE ENGINEER ✦ RAKSHITA BATTINA ✦ SOFTWARE ENGINEER ✦
+</textPath>
+
+
+
+            </text>
+          </svg>
+        </div>
+        <h2>Rakshita Battina</h2>
+        <div class="role">Full Stack Developer</div>
+        <p>Passionate and experienced Full Stack Developer with around 3 years building cloud-based applications on Google Cloud Platform. Skilled in Java, Python, and SQL for backend development, modernizing legacy apps, and streamlining data workflows. Proficient in multiple programming languages, frameworks, and GCP services, with expertise in database management, API integration, foundational AI/ML, and end-to-end development. Adept at problem-solving, Agile methodologies, teamwork, and leveraging technology to deliver high-quality software solutions.</p>
+        <a href="#contact" class="btn-contact">Contact</a>
+      </div>
+    </section>
+    
+
+    <!-- Professional Summary Section -->
+    <section id="experience" class="professional-summary">
+      <div class="summary-card">
+        <h2>Professional Experiences</h2>
+        <div class="professional-summary-text" style="margin-bottom: 2rem; font-size: 1.18rem; color: #eee; line-height: 1.7;">
+        </div>
+        <div class="experience-item">
+          <div class="exp-icon"><img src="images/fm.png" alt="FM" style="width:40px;height:40px;border-radius:50%;object-fit:cover;"></div>
+          <div class="exp-content">
+            <h3>Software Engineer</h3>
+            <div class="exp-location">Freddie Mac, McLean, VA</div>
+            <div class="exp-date">August 2022 – January 2025</div>
+            <ul>
+              <li>Achieved $4M annual savings in licensing costs by playing a key role in a legacy WebMethods replacement project, re-engineering and migrating data integration points to scalable GCP microservices, and ensuring delivery within tight deadlines.</li>
+              <li>Developed and maintained robust data validation processes using JUnit and Mockito, achieving over 85% code coverage and enhancing data reliability.</li>
+              <li>Managed data infrastructure provisioning and deployment with Jenkins, streamlining CI/CD for data applications and improving deployment efficiency by 30%.</li>
+              <li>Utilized Apache Kafka for real-time data streaming and employed Kibana and Elasticsearch for monitoring data pipelines, proactively identifying and resolving message failures and data bottlenecks.</li>
+              <li>Contributed to a 15% decrease in production bugs by actively participating in backend code reviews, ensuring data integrity and reducing code quality issues.</li>
+              <li>Accelerated delivery speed of data features by 20% and optimized team collaboration through Agile methodology and daily SCRUM meetings.</li>
+              <li>Boosted task efficiency by 12% by mentoring and training three new developers, equipping them with technical skills and knowledge of cloud services and internal standards, improving onboarding and productivity.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="exp-icon"><img src="images/prodits.png" alt="Prodits Inc" style="width:40px;height:40px;border-radius:50%;object-fit:cover;"></div>
+          <div class="exp-content">
+            <h3>Software Engineer Trainee</h3>
+            <div class="exp-location">Prodits Inc, Chantilly, VA</div>
+            <div class="exp-date">Jan 2022 - June 2022</div>
+            <ul>
+              <li>Built sample data pipelines and ETL workflows using GCP services, processing up to 10M+ records for training simulations.</li>
+              <li>Assisted in designing cloud architecture to migrate applications from on-prem and AWS to GCP.</li>
+              <li>Contributed to a 20% reduction in migration planning time by streamlining documentation and service comparisons.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+      <div class="education-card">
+        <h2>Education</h2>
+        <div class="education-item">
+          <div class="edu-icon">
+            <img src="images/edu.jpg" alt="Education Icon" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+          </div>
+          <div class="edu-content">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <div class="edu-location">George Mason University, Fairfax, VA</div>
+            <div class="edu-date">Graduated: December 2022</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="skills-card">
+        <h2>Skills</h2>
+        <div class="skills-columns">
+          <div class="skills-col">
+            <table class="skills-table">
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/programming.jpg" alt="Java"></span> Programming<br>Languages</th>
+                <td>Java, Python, SQL</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/cloud.jpg" alt="GCP"></span> Cloud<br>Platforms</th>
+                <td>GCP, AWS, Azure</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Big Data.jpg" alt="Big Data"></span> Big Data<br>Technologies</th>
+                <td>Apache Spark, Apache Kafka, Hadoop Ecosystem</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/database.jpg" alt="Databases"></span> Data warehousing<br> &amp; Databases</th>
+                <td>Data Warehouse, Oracle, MySQL, MongoDB, BigQuery</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Web technologies.jpg" alt="Web"></span> Java <br>&amp; Web Technologies</th>
+                <td>Java 8/11/17, Spring Boot, Spring Framework, JDBC, Restful APIs, REST, JSON, XML</td>
+              </tr>
+            </table>
+          </div>
+          <div class="skills-col">
+            <table class="skills-table">
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Version control.jpg" alt="Version Control"></span> Version<br>Control</th>
+                <td>Git, GitHub, Bitbucket</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Deployment icon.jpg" alt="Build Tools"></span> Build <br>&amp; Deployment tools</th>
+                <td>Maven, Jenkins, Docker, Kubernetes</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Testing.jpg" alt="Testing"></span> Testing</th>
+                <td>JUnit, Mockito, Data Validation Techniques</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Methodologies.jpg" alt="Methodologies"></span> Methodologies</th>
+                <td>Agile, Scrum, Test Driven Development (TDD)</td>
+              </tr>
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              <tr class="skills-row">
+                <th><span class="skill-icon"><img src="images/Monitoring.jpg" alt="Monitoring"></span> Monitoring <br>&amp; Logging</th>
+                <td>Kibana, Elasticsearch, Log4J, SFL4J</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="projects-card">
+        <h2>Projects</h2>
+        <div class="project-item">
+          <div class="project-title">GCP-backed URL Shortener with Analytics</div>
+          <div class="project-desc">Built a cloud-native URL shortener on GCP with real-time click tracking.<br>Achieved 95% uptime and reduced redirection latency by 40% using optimized queries and lightweight endpoints.<br>Tested with 85%+ JUnit coverage and deployed via Maven.</div>
+          <div class="project-tech">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">GCP</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">Maven</span>
+            <span class="skill-badge">JUnit</span>
+            <span class="skill-badge">Angular</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="github-link" title="GitHub Repository" target="_blank" rel="noopener">
+              <svg height="1.5em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="project-link" title="Project Link" target="_blank" rel="noopener">
+              <svg height="1.3em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">User Management System with OAuth2/JWT</div>
+          <div class="project-desc">Developed a microservice-based user system with secure authentication using OAuth2/JWT.<br>Scaled to support 10,000+ concurrent users with zero auth failures during load testing.<br>Containerized using Docker, deployed on Kubernetes, and monitored via Kibana.</div>
+          <div class="project-tech">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">REST APIs</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Kubernetes</span>
+            <span class="skill-badge">Maven</span>
+            <span class="skill-badge">Jenkins</span>
+            <span class="skill-badge">Kibana</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="github-link" title="GitHub Repository" target="_blank" rel="noopener">
+              <svg height="1.5em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="project-link" title="Project Link" target="_blank" rel="noopener">
+              <svg height="1.3em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Real-Time Fraud Detection System</div>
+          <div class="project-desc">Created a fraud detection engine using Kafka and Spark, detecting anomalies in under 5 seconds per transaction.<br>Reduced false positives by 22% through advanced rule tuning.<br>Stored flagged events in MongoDB and visualized alerts with Kibana.</div>
+          <div class="project-tech">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">Spark</span>
+            <span class="skill-badge">Kafka</span>
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">Jenkins</span>
+            <span class="skill-badge">Kibana</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="github-link" title="GitHub Repository" target="_blank" rel="noopener">
+              <svg height="1.5em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="project-link" title="Project Link" target="_blank" rel="noopener">
+              <svg height="1.3em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Twitter Sentiment Analysis Pipeline</div>
+          <div class="project-desc">Streamed and analyzed over 1M tweets in real time using Kafka, Spark, and Python NLP.<br>Achieved 92% sentiment classification accuracy, leveraging custom-trained models.<br>Deployed on GCP with containerized services via Docker and automated via Jenkins.</div>
+          <div class="project-tech">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Kafka</span>
+            <span class="skill-badge">Spark</span>
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">GCP</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Jenkins</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="github-link" title="GitHub Repository" target="_blank" rel="noopener">
+              <svg height="1.5em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="project-link" title="Project Link" target="_blank" rel="noopener">
+              <svg height="1.3em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Healthcare Data Interoperability Layer</div>
+          <div class="project-desc">Standardized and validated 500K+ patient records for EHR systems using Java and Python.<br>Improved data quality by 30%, and reduced manual validation efforts by 40%.<br>Hosted on GCP, monitored using built-in logging & alerts.</div>
+          <div class="project-tech">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">Data warehouse</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">GCP</span>
+            <span class="skill-badge">Data Validation Techniques</span>
+            <span class="skill-badge">Monitoring</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="github-link" title="GitHub Repository" target="_blank" rel="noopener">
+              <svg height="1.5em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.479C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="project-link" title="Project Link" target="_blank" rel="noopener">
+              <svg height="1.3em" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+      <div class="certificates-card">
+        <h2>Certificates</h2>
+        <div class="certificates-columns">
+          <div class="certificates-col">
+            <div class="certificate-item" style="display: flex; align-items: center; gap: 18px;">
+              <div class="cert-icon">
+                <img src="images/GCP.png" alt="Google Cloud Professional Data Engineer" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+              </div>
+              <div class="cert-content" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <h3 style="margin-bottom: 2px;">Google Professional Data Engineer</h3>
+                <div class="cert-org" style="margin-bottom: 2px;">Google Cloud</div>
+                <div class="cert-date">Issued: July 2022</div>
+              </div>
+            </div>
+          </div>
+          <div class="certificates-col">
+            <div class="certificate-item" style="display: flex; align-items: center; gap: 18px;">
+              <div class="cert-icon">
+                <img src="images/Azure.png" alt="Microsoft Azure Fundamentals" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+              </div>
+              <div class="cert-content" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <h3 style="margin-bottom: 2px;">Microsoft Azure Fundamentals</h3>
+                <div class="cert-org" style="margin-bottom: 2px;">Microsoft</div>
+                <div class="cert-date">Issued: November 2022</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+      <div class="testimonial-content">
+        <h2>What People Say</h2>
+        <p>"Rakshita is an exceptional software developer. Their expertise in cloud technologies and data engineering has significantly improved our project outcomes. Highly recommended!"</p>
+        <p>- John Doe, Tech Lead at ExampleCorp</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>I'm always open to discussing new opportunities, collaborating on exciting projects, or simply connecting with like-minded professionals. Feel free to reach out!</p>
+      <a href="mailto:rakshita.battina@example.com">Email Me</a>
+    </section>
+  </div>
+
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme');
+
+  // if (savedTheme === 'light-theme') {
+  //   document.body.classList.add('light-theme');
+  //   toggleButton.textContent = '🌙';
+  // } else {
+  //   toggleButton.textContent = '☀️';
+  // }
+
+  // toggleButton.addEventListener('click', () => {
+  //   document.body.classList.toggle('light-theme');
+  //   const isLight = document.body.classList.contains('light-theme');
+  //   localStorage.setItem('theme', isLight ? 'light-theme' : '');
+  //   toggleButton.textContent = isLight ? '🌙' : '☀️';
+  // });
+
+  // Highlight nav-linked sections
+  document.querySelectorAll('.nav-right a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.querySelector(href);
+        if (section) {
+          const h2 = section.querySelector('h2');
+          if (h2) {
+            h2.classList.add('section-highlight');
+            setTimeout(() => h2.classList.remove('section-highlight'), 1200);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
