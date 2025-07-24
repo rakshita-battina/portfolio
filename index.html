@@ -335,12 +335,13 @@ body.light-theme .experience-item:hover {
       .edu-icon { margin-bottom: 12px; margin-right: 0; }
     }
     .skills-section {
+      font-size: 0.85rem;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       background: none;
-      padding: 0 0 0 0;
+      padding: 0 48px 0 48px;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -350,7 +351,7 @@ body.light-theme .experience-item:hover {
       border-radius: 16px;
       max-width: 1100px;
       width: 100%;
-      padding: 10px 48px 20px 48px;
+      padding: 10px 20px;
       box-shadow: none;
       margin: 0 auto;
       display: flex;
@@ -360,9 +361,9 @@ body.light-theme .experience-item:hover {
     }
     .skills-card h2 {
       font-size: 2.5rem;
+      margin-bottom: 1rem;
       font-weight: 800;
-      margin-bottom: 2.5rem;
-      text-align: left;
+      text-align: center;
       align-self: flex-start;
     }
     .skills-columns {
@@ -386,9 +387,16 @@ body.light-theme .experience-item:hover {
       text-align: center;
     }
     .skills-table th, .skills-table td {
+      font-size: 0.85rem;  /* reduce cell text size */
+      padding: 0.3rem 0.5rem;
+      line-height: 1.2;
+      vertical-align: top;
       text-align: center;
       justify-content: center;
       align-items: center;
+      
+  
+  
     }
     .skills-table th {
       display: flex;
@@ -417,6 +425,7 @@ body.light-theme .experience-item:hover {
       max-width: 340px; /* Reduce max width for a more balanced look */
       word-break: break-word;
     }
+    
     /* Skills Section Icon Consistency with Education Icon */
     .skill-icon {
       min-width: 64px;
@@ -436,19 +445,20 @@ body.light-theme .experience-item:hover {
       box-shadow: 0 4px 16px rgba(255,224,130,0.18), 0 2px 8px rgba(0,0,0,0.18);
     }
     .skill-icon img {
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
     }
     .skills-divider {
       display: table-row;
+      margin: 0;
     }
     .skills-hr {
       border: none;
-      border-top: 1.5px solid #333;
-      margin: 0.2rem 0 0.2rem 0;
+      margin: 0.1rem 0;
+      border-top: 1px solid #444;
       width: 100%;
     }
     .skill-icon {
@@ -456,8 +466,10 @@ body.light-theme .experience-item:hover {
       align-items: center;
       justify-content: center;
       font-size: 1.2em;
-      margin-right: 0.5em;
       vertical-align: middle;
+      min-width: 48px;
+      min-height: 48px;
+      margin-right: 16px;
     }
     .skills-row {
       transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
@@ -511,6 +523,139 @@ body.light-theme .experience-item:hover {
         font-size: 0.98rem;
       }
     }
+    .interests-section {
+  width: 100%;
+  background: #111;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interests-card {
+  max-width: 1100px;
+  width: 100%;
+  padding: 20px 40px;
+  color: #fff;
+}
+
+.interests-card h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tag {
+  background: #000;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 1; /* ensures content stays above overlay */
+}
+
+.contact-section {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  padding: 0 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 45%;
+}
+
+.contact-left h2{
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 20px;
+}
+.contact-right h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.resume-download-group {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+#resume-format {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #fff;
+}
+
+.btn-resume {
+  background: #DD4235;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+.btn-contact-email {
+  display: inline-block;
+  background: #DD4235;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-resume:hover,
+.btn-contact-email:hover {
+  background: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
     /* Certificates Section */
     .certificates-section {
       width: 100%;
@@ -599,7 +744,7 @@ body.light-theme .experience-item:hover {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 80px 0;
+      padding: 40px ;
       background: #111;
       color: #fff;
       text-align: center;
@@ -848,7 +993,7 @@ body.light-theme .experience-item:hover {
   <div class="container">
     <section class="intro-section">
       <div class="intro-image">
-        <img src="images/pic.jpg" alt="Rakshita Battina">
+        <img src="images/rakshita_B.jpg" alt="Rakshita Battina">
       </div>
       <div class="intro-text">
         <div class="circular-label">
@@ -945,33 +1090,33 @@ body.light-theme .experience-item:hover {
                 <th><span class="skill-icon"><img src="images/cloud.jpg" alt="GCP"></span> Cloud<br>Platforms</th>
                 <td>GCP, AWS, Azure</td>
               </tr>
-              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
-              <tr class="skills-row">
+              <!--<tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+               <tr class="skills-row">
                 <th><span class="skill-icon"><img src="images/Big Data.jpg" alt="Big Data"></span> Big Data<br>Technologies</th>
                 <td>Apache Spark, Apache Kafka, Hadoop Ecosystem</td>
-              </tr>
+              </tr> -->
               <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
               <tr class="skills-row">
                 <th><span class="skill-icon"><img src="images/database.jpg" alt="Databases"></span> Data warehousing<br> &amp; Databases</th>
-                <td>Data Warehouse, Oracle, MySQL, MongoDB, BigQuery</td>
+                <td>Data Warehouse, MySQL, MongoDB</td>
               </tr>
               <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
               <tr class="skills-row">
-                <th><span class="skill-icon"><img src="images/Web technologies.jpg" alt="Web"></span> Java <br>&amp; Web Technologies</th>
-                <td>Java 8/11/17, Spring Boot, Spring Framework, JDBC, Restful APIs, REST, JSON, XML</td>
+                <th><span class="skill-icon"><img src="images/Web technologies.jpg" alt="Web"></span> Web Technologies</th>
+                <td>Spring Boot, Restful APIs,  Angular</td>
               </tr>
             </table>
           </div>
           <div class="skills-col">
             <table class="skills-table">
-              <tr class="skills-row">
+              <!-- <tr class="skills-row">
                 <th><span class="skill-icon"><img src="images/Version control.jpg" alt="Version Control"></span> Version<br>Control</th>
                 <td>Git, GitHub, Bitbucket</td>
-              </tr>
-              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
+              </tr> 
+              <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>-->
               <tr class="skills-row">
-                <th><span class="skill-icon"><img src="images/Deployment icon.jpg" alt="Build Tools"></span> Build <br>&amp; Deployment tools</th>
-                <td>Maven, Jenkins, Docker, Kubernetes</td>
+                <th><span class="skill-icon"><img src="images/Deployment icon.jpg" alt="Build Tools"></span> Deployment tools</th>
+                <td>Jenkins, Docker, Kubernetes</td>
               </tr>
               <tr class="skills-divider"><td colspan="2"><hr class="skills-hr"></td></tr>
               <tr class="skills-row">
@@ -999,7 +1144,7 @@ body.light-theme .experience-item:hover {
       <div class="projects-card">
         <h2>Projects</h2>
         <div class="project-item">
-          <div class="project-title">GCP-backed URL Shortener with Analytics</div>
+         <div class="project-title">GCP-backed URL Shortener with Analytics</div>
           <div class="project-desc">Built a cloud-native URL shortener on GCP with real-time click tracking.<br>Achieved 95% uptime and reduced redirection latency by 40% using optimized queries and lightweight endpoints.<br>Tested with 85%+ JUnit coverage and deployed via Maven.</div>
           <div class="project-tech">
             <span class="skill-badge">Java</span>
@@ -1139,21 +1284,52 @@ body.light-theme .experience-item:hover {
       </div>
     </section>
 
+    <!-- Interests Section -->
+    <section id="interests" class="interests-section">
+      <div class="interests-card">
+        <h2>Interests</h2>
+        <div class="interest-tags">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonial Section -->
-    <section class="testimonial">
+    <!-- <section class="testimonial">
       <div class="testimonial-content">
         <h2>What People Say</h2>
         <p>"Rakshita is an exceptional software developer. Their expertise in cloud technologies and data engineering has significantly improved our project outcomes. Highly recommended!"</p>
         <p>- John Doe, Tech Lead at ExampleCorp</p>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Get in Touch</h2>
-      <p>I'm always open to discussing new opportunities, collaborating on exciting projects, or simply connecting with like-minded professionals. Feel free to reach out!</p>
-      <a href="mailto:rakshita.battina@example.com">Email Me</a>
-    </section>
+    <section id="contact" class="contact-section with-background">
+  <div class="contact-container">
+    <!-- Left Column: Resume Download -->
+    <div class="contact-left">
+      <h2>Download Resume</h2>
+      <div class="resume-download-group">
+        <select id="resume-format">
+          <option value="images/RAKSHITA BATTINA.pdf">PDF</option>
+          <option value="images/RAKSHITA BATTINA.docx">DOCX</option>
+        </select>
+        <a id="download-btn" class="btn-resume" href="images/RAKSHITA BATTINA.pdf" download>Download</a>
+      </div>
+
+    </div>
+      
+
+    <!-- Right Column: Contact Me -->
+    <div class="contact-right">
+      <h2>Contact Me</h2>
+      <!-- <p>I'm always open to connecting, collaborating, or discussing opportunities. Feel free to reach out!</p> -->
+      <a href="mailto:rakshita.battina@example.com" class="btn-contact-email">Email Me</a>
+    </div>
+  </div>
+</section>
+
+    
   </div>
 
   <script>
@@ -1173,7 +1349,10 @@ body.light-theme .experience-item:hover {
   //   localStorage.setItem('theme', isLight ? 'light-theme' : '');
   //   toggleButton.textContent = isLight ? '🌙' : '☀️';
   // });
-
+    document.getElementById('resume-format').addEventListener('change', function () {
+    const format = this.value;
+    document.getElementById('download-btn').setAttribute('href', format);
+  });
   // Highlight nav-linked sections
   document.querySelectorAll('.nav-right a').forEach(link => {
     link.addEventListener('click', function(e) {
